@@ -2,7 +2,7 @@
 layout: post
 title:  "Finite Element Methods"
 date:   2022-12-07 +0530
-categories: Personal-Project
+categories: Personal_Project
 ---
 ![][image1]
 

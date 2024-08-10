@@ -2,7 +2,7 @@
 layout: post
 title:  "Adaptive Cruise & Regenerative Brake Controller Design"
 date:   2022-12-07 +0530
-categories: Personal-Project
+categories: Personal_Project
 ---
 Here is the document converted to Markdown:
 

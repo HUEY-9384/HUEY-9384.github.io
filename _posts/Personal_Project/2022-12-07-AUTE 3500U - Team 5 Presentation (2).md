@@ -2,7 +2,7 @@
 layout: post
 title:  "AUTE 3500U - Team 5 Presentation (2)"
 date:   2022-12-07 +0530
-categories: Personal-Project
+categories: Personal_Project
 ---
 
 Design, Development and Construction of: 
