@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ site.plainwhite.html_lang }}">
 
@@ -11,9 +12,10 @@
 {% assign condensed_class = "" %}
 {%- endif -%}
 
-<body>
+</head>
 
-  <main class="container">
+<body>
+   <main class="container">
     <section class="about">
       <div class="about-header {{condensed_class}}">
       <div class="about-title">
@@ -34,6 +36,7 @@
       {%- endif -%}
       </div>
 <ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a></li><li class="nav-item active"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a></li><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a></li><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a></li><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></li></ul>
+
 
       {% capture footer %}
       {%- if site.plainwhite.social_links != '' -%}
@@ -167,34 +170,54 @@
       {% endcapture %}
       {{ footer }}
     </section>
+
     <section class="content">
       {{ content }}
-    </section>
+{{ content }}
+
+{%- if site.posts.size > 0 -%}
+  <ul class="posts">
+
+    <li class="posts-labelgroup" id="posts-labelgroup">
+      <h1 id="posts-label">posts</h1>
+      {% if site.plainwhite.search %}
+      <div class="search-container">
+        <div class="search-section">
+          <i class="icon-search"></i>
+          <input type="text" name="search" id="searchbar" autocomplete="off" aria-label="search in posts">
+        </div>
+        <div class="search-results" id="search-results" data-placeholder="No Results" style="display: none;"></div>
+      </div>
+      {% endif %}
+    </li>
+ <h1>Posts in {{ page.category }}</h1>
+    {%- for post in site.posts -%}
+   
+    <ul>
+      {% for post in site.categories[page.category] %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+            </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  <!-- <p class="feed-subscribe"><svg class="svg-icon orange">
+		<use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
+	</svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p> -->
+{%- endif -%}
+
+  
+ 
+
+
+
+  </section> 
     <footer class="{{condensed_class}}">
       {{ footer }}
     </footer>
-  </main>
-  {% if site.plainwhite.dark_mode %}
-  <script type="text/javascript" src="{{ "/assets/js/darkmode.js" | relative_url }}"></script>
-  {% endif %}
 
-  {%- if site.plainwhite.analytics_id -%}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{ site.plainwhite.analytics_id }}');
-  </script>
-  {%- endif -%}
 
-  {% if site.plainwhite.search %}
-  <script src="{{ "/assets/js/simple-jekyll-search.min.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
-  {% endif %}
-
-</body>
-
-</html>
 
 

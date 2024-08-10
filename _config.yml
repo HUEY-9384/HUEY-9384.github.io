@@ -59,3 +59,6 @@ plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
 
+
+# URL 구조 설정
+permalink: /:categories/:year/:month/:day/:title.html
