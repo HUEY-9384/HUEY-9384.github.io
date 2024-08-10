@@ -1,222 +1,126 @@
-# plainwhite
+# Textalic
 
-Simplistic jekyll portfolio-style theme for writers.
+[![feature_jt](https://img.shields.io/badge/featured%20on-JT-red.svg)](https://jekyll-themes.com)
 
-**Demo**: [samarsault.com](https://samarsault.com)
+![mockup](./assets/img/mockup.png)
 
-![plainwhite theme preview](/screenshot.png)
+**Textalic** is a simple, responsive jekyll theme focus on blogging. Here is
+a [live demo](https://unifreak.github.io/jekyll-theme-textalic/).
 
-## Installation on Github Pages
+## Features
 
-Add this line to your site's `_config.yml`:
+- Post category, tag and series
+- Github flavored markdown rendering
+- LaTeX and ascii math notation rendering
+- Disqus comment and Gitalk comment
+- Fulltext search (powered by [jekyll-simple-search plugin](https://github.com/christian-fei/Simple-Jekyll-Search))
+- Code highlighting
+- Autogenerate table of content
+- Google analytics
+- Atom feed
+- Sitemap
 
-```yaml
-remote_theme: samarsault/plainwhite-jekyll
+## Install & Configuration
+
+### Set up jekyll
+
+Make sure you have set up jekyll correctly. See [the official jekyll doc](https://jekyllrb.com/docs/).
+
+### Clone this repo
+
+Clone this repo into to your local machine, then `cd` to the root directory of
+your local copy. Here is an overview of the project's file structure:
+
+```console
+jekyll-theme-textalic
+├── 404.html                    # 404 page
+├── Gemfile
+├── LICENCE
+├── _config.yml                 # Main config
+├── _data
+│   └── me.yml                  # Personal info config
+├── _demo_series                # A demo series, add series into series folder
+│   └── demo_series_post_1.md
+├── _includes
+├── _layouts
+├── _posts
+│   └── 2019-12-25-Intro.md     # Add new post here
+├── _sass
+├── about                       # About page
+├── assets                      # images, fonts, css, js...
+│   ├── img
+│   │   ├── me.png              # Replace with your own, showed in /about page
+├── favicon.ico                 # Replace with your own
+├── feed.xml
+├── index.html
+├── resume
+│   └── index.md                # You may write your resume here. linked in /about page
+├── search.json
+├── series
+└── tag
 ```
 
-## Installation
+### Install gems
 
-Add this line to your Jekyll site's `Gemfile`:
+Run the following command to install required gems defined in `Gemfile`:
 
-```ruby
-gem "plainwhite"
+```
+$ bundle install
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+### Customization
 
-```yaml
-theme: plainwhite
-```
+Edit `_config.yml` and `_data/me.yml` to tweek the site configuration to your
+need. See corresponding comments in these files for details.
 
-And then execute:
+You also should replace the `/favicon.ico` and `/assets/img/me.png` file with
+your own.
 
-    $ bundle
+### Run locally
 
-Or install it yourself as:
+Run `bundle exec jekyll serve --watch` to run it locally.
 
-    $ gem install plainwhite
+## Blogging
 
-## Usage
+You can begin writting your posts under `/_posts` folder.
+See [Jekyll doc on posts](https://jekyllrb.com/docs/posts/).
 
-The "plainwhite" key in \_config.yml is used to customize the theme data.
+Posts are automatically grouped under site's post/category and post/tag menu.
 
-```yaml
-plainwhite:
-  name: Adam Denisov
-  tagline: Developer. Designer
-  date_format: "%b %-d, %Y"
+You can define post's category and tags in the post's [front matter](https://jekyllrb.com/docs/front-matter/),
+using `category` and `tags` front matter block.
 
-  social_links:
-    twitter: samarsault
-    github: samarsault
-    linkedIn: in/samarsault # format: locale/username
-```
+## Math Notation Support
 
-**Updating Placeholder Image**
+You can enable latex math support or asciimath support by adding `usemath: latex`
+or `usemath: ascii` front matter accordingly. Latex math notation must be wrapped
+inside \$\$, and asciimath notation must be wrapped inside \\`.
 
-The placeholder portfolio image can be replaced by the desired image by placing it as `assets/portfolio.png` in your jekyll website, or by changing the following line in `_config.yaml`
+For detail configuration and math rendering result, see <https://unifreak.github.io/jekyll-theme-textalic/demo/Blogging>
 
-```yaml
-plainwhite:
-  portfolio_image:  "assets/portfolio.png" # the path from the base directory of the site to the image to display (no / at the start)
-```
+### Series
 
-To use a different image for dark mode, e.g. with different colors that work better in dark mode, add a `portfolio_image_dark` entry in addition to the `portfolio_image`.
+Series are implemented using [Jekyll's collections](https://jekyllrb.com/docs/collections/).
+To add new series, follow these steps:
 
-```yaml
-plainwhite:
-  portfolio_image:      "assets/portfolio.png"
-  portfolio_image_dark: "assets/portfolio_dark.png"
-```
+1. Define a new collection in `_config.yml`, under `collections` configuration block:
 
-**Comments (Disqus)**
+    ```yaml
+    collections:
+      demo_series:
+        output: true
+    ```
 
-Comments on posts can be enabled by specifying your disqus_shortname under plainwhite in `_config.yml`. For example,
+    Note that to make the change to `_config.yml` take effects, you **need to restart jekyll**.
 
-```yaml
-plainwhite:
-  disqus_shortname: games
-```
+2. Create the series (aka collection) folder `/_demo_series`. Note that the **folder name begin with `_`**.
 
-**Google Analytics**
+3. By adding new post under the series folder, you add post under the corresponding series.
 
-It can be enabled by specifying your analytics id under plainwhite in `_config.yml`
+## Deployment
 
-```yaml
-plainwhite:
-  analytics_id: "< YOUR ID >"
-```
+See [Jekyll doc on deployment](https://jekyllrb.com/docs/deployment/).
 
-**Sitemap**
+## That's it
 
-It can be toggled by the following line to under plainwhite in `_config.yml`
-
-```yaml
-plainwhite:
-  sitemap: true
-```
-
-**Excerpts**
-
-Excerpts can be enabled by adding the following line to your `_config.yml`
-
-```yaml
-show_excerpts: true
-```
-
-**Layouts**
-
-- Home
-- Page
-- Post
-
-**Navigation**
-
-Navigation can be enabled by adding the following line to your `_config.yml`
-
-```yaml
-plainwhite:
-  navigation:
-    - title: My Work
-      url: "/my-work"
-    - title: Resume
-      url: "/resume"
-```
-
-**Mobile**
-
-By default, Plainwhite places the sidebar (logo, name, tagline etc.) above the content on mobile (narrow screens).
-To condense it (moving some things to the bottom of the page and making the rest smaller) so it takes up less space, add the following to your `_config.yml`:
-
-```yaml
-plainwhite:
-  condensed_mobile:
-    - home
-    - post
-    - page
-```
-
-This chooses which layouts (types of page) should be condensed on mobile screens. E.g. if you want everything but the landing page to be condensed, remove `home` from the list. This option does not affect rendering on wider screens.
-
-**Dark mode**
-
-Dark mode can be enabled by setting the `dark_mode` flag in your `_config.yml`
-
-The website will check the OS preferred color scheme and set the theme accordingly, the preference will then be saved in a cookie
-
-```yaml
-plainwhite:
-  dark_mode: true
-```
-
-![plainwhite dark theme previe](/dark.png)
-
-**Multiline tagline**
-
-Tagline can be multiline in this way
-
-```yaml
-plainwhite:
-  tagline: |
-  First Line. 
-
-  Second Line. 
-
-  Third Line.
-```
-
-**Search-bar**
-
-Search-bar can be enabled by adding the following line to `config.yml`
-
-```yaml
-plainwhite:
-  search: true
-```
-
-Search is powered by [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search) Jekyll plugin. A `search.json` containing post meta and contents will be generated in site root folder. Plugin JavaScript will then match for posts based on user input. More info and `search.json` customization documentation can be found in plugin repository.
-
-**Base URL**
-
-You can specify a custom base URL (eg. example.com/blog/) by adding the following line to `_config.yaml`. Note that there is no trailing slash on the URL.
-
-```yaml
-baseurl: "/blog"
-```
-
-**Language**
-
-You can set the `lang` attribute of the `<html>` tag on your pages by changing the following line in `_config.yml`:
-
-```yaml
-plainwhite:
-  html_lang: "en"
-```
-
-[See here for a full list of available language codes](https://www.w3schools.com/tags/ref_country_codes.asp)
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/samarsault/plainwhite-jekyll. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `plainwhite.gemspec` accordingly.
-
-## Donation
-If this project help you reduce time to develop, you can give me a cup of coffee :) 
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/thelehhman)
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## More themes
-
-- [Texture](https://github.com/samarsault/texture)
+Happy blogging!

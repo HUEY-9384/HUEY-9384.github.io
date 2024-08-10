@@ -1,0 +1,26 @@
+# These data will be shown in /about page and every page footer
+# Replace these with your own personal info
+
+name: "Hyungsuk Seo"
+job: "Automotive Engineering"
+hi: " Engineer"
+avatar_img: "/assets/img/portfolio.png" # path to your avatar
+intro:
+  - "Some thing about yourself"
+  - "Can have multiple lines"
+skills:
+  - name: "Programming"
+    icon-class: "fa fa-terminal"
+    list: ["Matlab", "Python", "C+","Simulink"]
+  - name: "Speciality"
+    icon-class: "fa fa-th-list"
+    list: ["FEM / CAD", "AI", "Statics", "Vehicle Dynamic" ,"CFD" ,"Simulation"]
+  - name: "Tools"
+    icon-class: "fa fa-cogs"
+    list: ["NX", "Solidworks", "Matlab", "Simulink"]
+
+display_name: "YOUR NAME"
+contact:
+  - {name: "Email", icon-class: "fa fa-envelope", text: "sjjin9384@gmail.com", link: "mailto: sjjin9384@gmail.com"}
+social:
+  - {name: "GitHub", icon-class: "fa fa-linkedin-square", text: "https://www.linkedin.com/in/hyungsuk-seo-332b97202/", link: "https://www.linkedin.com/in/hyungsuk-seo-332b97202/"}
