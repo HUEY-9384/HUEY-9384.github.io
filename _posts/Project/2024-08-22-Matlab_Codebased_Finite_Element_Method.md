@@ -52,8 +52,7 @@ Table of Contents
 Abstract
 ========
 
-This project was initiated based on my previous Automotive Structure Design project and the MATLAB coding I developed during a FEM project. This project goal is to rewrite the MATLAB code to address the errors and issues that had arisen in earlier versions. One of the key advantages of using MATLAB for FEM analysis is its ease in configuring nodes and elements, the flexibility to set material properties, and the ability to perform optimization more effectively than traditional CAD programs. After rewriting the MATLAB code, I compared the torsional stiffness and rotational outcomes with those obtained from CAD programs. This comparison was intended to evaluate the practicality of MATLAB in FEM analysis. The results showed a 10.10% error difference between the MATLAB-based FEM and the NX CAD FEM. Although this indicates some discrepancies, it also suggests that MATLAB remains a practical tool for FEM analysis.
-
+This project was initiated based on my previous Automotive Structure Design project and the MATLAB coding I developed during a FEM project. This project goal is to rewrite the MATLAB code to address the errors and issues that had arisen in earlier versions. One of the key advantages of using MATLAB for FEM analysis is its ease in configuring nodes and elements, the flexibility to set material properties, and the ability to perform optimization more effectively than traditional CAD programs. After rewriting the MATLAB code, I compared the torsional stiffness and rotational outcomes with those obtained from NX CAD and matlab-based FEM. This comparison was intended to evaluate the practicality of MATLAB in FEM analysis. The results showed a 10.10% error difference between the MATLAB-based FEM and the NX CAD FEM. Although this indicates some discrepancies, it also suggests that MATLAB remains a practical tool for FEM analysis.
 Introduction
 ============
 
