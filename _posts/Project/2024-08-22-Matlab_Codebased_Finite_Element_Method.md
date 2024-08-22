@@ -130,29 +130,15 @@ Initial model From NX CAD
 
 The initial model is based on the provided parameters in the project. The material properties (provided parameters) are as follows:
 
-Material Property
+| **Material Property**        | **Value**        |
+|------------------------------|------------------|
+| Young’s Modulus, E           | 206 GPa          |
+| Shear Modulus, G             | 79.85 GPa        |
+| Poisson’s Ratio              | 0.29             |
+| Density                      | 7850 kg/m³       |
+| Yield Strength               | 310 MPa          |
+ 
 
-Value
-
-Young’s Modulus, E
-
-206 GPa
-
-Shear Modulus, G
-
-79.85 GPa
-
-Poisson’s Ratio
-
-0.29
-
-Density
-
-7850 kg/m^3
-
-Yield Strength
-
-310 MPa
 
 Based on this data, a CAD and FEA model was produced and used for all future deliverables up to Milestone 3, where a redesign of the beams is outlined as scope. The following was replicated in Siemens NX.
 
@@ -207,27 +193,11 @@ Compared between NX CAD results and Matlab based FEM , I found that TS1 has 8.85
 
 Table.1
 
-Nx
+| **Parameter** | **NX**       | **MATLAB**  | **Error**  |
+|---------------|--------------|-------------|------------|
+| Ts1           | 86019.014    | 78410       | 8.85%      |
+| Deg           | 0.008719     | 0.0097      | 10.10%     |
 
-Matlab
-
-errors
-
-Ts1
-
-86019.014
-
-78410
-
-8.85%
-
-Deg
-
-0.008719
-
-0.0097
-
-10.10%
 
 Results
 =======
