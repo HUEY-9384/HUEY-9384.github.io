@@ -120,19 +120,32 @@ body.dark .right  { border-left: 4px solid #6699ff; }
 
 
 .author-opinion {
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin: 20px auto;
+  font-size: 0.9em;
+  color: #444;
   max-width: 1000px;
-  border-left: 5px solid #555;
-  font-size: 1.1em;
-  line-height: 1.6;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border-left: 4px solid #999;
+  border-radius: 4px;
   white-space: pre-wrap;
+  line-height: 1.5;
 }
 
 body.dark .author-opinion {
-  background-color: #222;
-  color: #ddd;
-  border-left-color: #aaa;
+  background-color: #1e1e1e;
+  color: #ccc;
+  border-left-color: #666;
+}
+
+.news-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.news-grid section {
+  flex: 1;
 }
 
