@@ -7,7 +7,7 @@
 </head>
 <body>
   <header>
-    <h1>종합 뉴스 홈페이지</h1>
+    <h1>종합 뉴스</h1>
     <nav>
       <a href="left.html">좌파 뉴스</a>
       <a href="neutral.html">중립 뉴스</a>
@@ -15,20 +15,20 @@
     </nav>
   </header>
 
-  <main>
-    <section>
+  <main class="news-grid">
+    <section class="left">
       <h2>좌파 성향 뉴스 (한겨레)</h2>
-      <ul id="left-news"></ul>
+      <div id="left-news" class="news-list"></div>
     </section>
 
-    <section>
+    <section class="neutral">
       <h2>중립 성향 뉴스 (연합뉴스)</h2>
-      <ul id="neutral-news"></ul>
+      <div id="neutral-news" class="news-list"></div>
     </section>
 
-    <section>
+    <section class="right">
       <h2>우파 성향 뉴스 (조선일보)</h2>
-      <ul id="right-news"></ul>
+      <div id="right-news" class="news-list"></div>
     </section>
   </main>
 
@@ -42,18 +42,27 @@
       fetch(url)
         .then(res => res.json())
         .then(data => {
-          const list = document.getElementById(elementId);
+          const container = document.getElementById(elementId);
           data.items.slice(0, 5).forEach(item => {
-            const li = document.createElement('li');
-            li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
-            list.appendChild(li);
+            const div = document.createElement('div');
+            div.className = 'news-item';
+            div.innerHTML = `
+              <a href="${item.link}" target="_blank">
+                <img src="${item.thumbnail || 'https://via.placeholder.com/100'}" alt="썸네일">
+                <div class="news-text">
+                  <h3>${item.title}</h3>
+                  <p>${item.description.slice(0, 100)}...</p>
+                </div>
+              </a>
+            `;
+            container.appendChild(div);
           });
         });
     }
 
-    loadNews("http://www.hani.co.kr/rss/", "left-news");             // 좌파
-    loadNews("https://www.yna.co.kr/rss/all01.xml", "neutral-news"); // 중립
-    loadNews("http://rss.chosun.com/rss/www_section01.xml", "right-news"); // 우파
+    loadNews("http://www.hani.co.kr/rss/", "left-news");
+    loadNews("https://www.yna.co.kr/rss/all01.xml", "neutral-news");
+    loadNews("http://rss.chosun.com/rss/www_section01.xml", "right-news");
   </script>
 </body>
 </html>
