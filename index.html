@@ -61,7 +61,7 @@
               ${imageTag}
               <div class="news-text">
                 <h3>${item.title}</h3>
-                <p>${item.description.slice(0, 100)}...</p>
+                <p>${(item.content || item.description).slice(0, 300)}...</p>
               </div>
             </a>
           `;
