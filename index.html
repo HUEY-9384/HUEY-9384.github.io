@@ -41,11 +41,22 @@
       .then(data => {
         const container = document.getElementById(elementId);
         data.items.slice(0, 3).forEach(item => {
+          // 가능한 썸네일 이미지 추출 순서: thumbnail > media:content > media:thumbnail
+          let thumbnail = item.thumbnail || 
+                          (item['media:content'] && item['media:content'].url) ||
+                          (item['media:thumbnail'] && item['media:thumbnail'].url) || null;
+
           const div = document.createElement('div');
           div.className = 'news-item';
+
+          // 이미지 태그 조건부 생성
+          const imageTag = thumbnail 
+            ? `<img src="${thumbnail}" alt="썸네일">` 
+            : '';
+
           div.innerHTML = `
             <a href="${item.link}" target="_blank">
-              <img src="${item.thumbnail || 'https://via.placeholder.com/100'}" alt="썸네일">
+              ${imageTag}
               <div class="news-text">
                 <h3>${item.title}</h3>
                 <p>${item.description.slice(0, 100)}...</p>
@@ -56,6 +67,7 @@
         });
       });
   }
+
   // 좌파
   loadNews("https://www.yna.co.kr/rss/politics.xml", "left-news");
   loadNews("https://www.khan.co.kr/rss/rssdata/politic_news.xml", "left-news");
