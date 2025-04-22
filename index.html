@@ -2,27 +2,58 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>오늘의 뉴스</title>
+  <title>종합 뉴스</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>📰 오늘의 뉴스</h1>
+    <h1>종합 뉴스 홈페이지</h1>
     <nav>
       <a href="left.html">좌파 뉴스</a>
       <a href="neutral.html">중립 뉴스</a>
       <a href="right.html">우파 뉴스</a>
     </nav>
   </header>
+
   <main>
-    <h2>주요 뉴스</h2>
-    <article>
-      <h3>오늘의 주요 뉴스</h3>
-      <p>각 성향별로 뉴스를 선택해서 보세요.</p>
-    </article>
+    <section>
+      <h2>좌파 성향 뉴스 (한겨레)</h2>
+      <ul id="left-news"></ul>
+    </section>
+
+    <section>
+      <h2>중립 성향 뉴스 (연합뉴스)</h2>
+      <ul id="neutral-news"></ul>
+    </section>
+
+    <section>
+      <h2>우파 성향 뉴스 (조선일보)</h2>
+      <ul id="right-news"></ul>
+    </section>
   </main>
+
   <footer>
     <p>&copy; 2025 종합 뉴스</p>
   </footer>
+
+  <script>
+    function loadNews(rssUrl, elementId) {
+      const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          const list = document.getElementById(elementId);
+          data.items.slice(0, 5).forEach(item => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+            list.appendChild(li);
+          });
+        });
+    }
+
+    loadNews("http://www.hani.co.kr/rss/", "left-news");             // 좌파
+    loadNews("https://www.yna.co.kr/rss/all01.xml", "neutral-news"); // 중립
+    loadNews("http://rss.chosun.com/rss/www_section01.xml", "right-news"); // 우파
+  </script>
 </body>
 </html>
