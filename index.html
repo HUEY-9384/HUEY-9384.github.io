@@ -61,13 +61,13 @@
       });
   }
   // 좌파
-  loadNews("http://www.hani.co.kr/rss/", "left-news");
+  loadNews("https://www.yna.co.kr/rss/politics.xml", "left-news");
   loadNews("https://www.khan.co.kr/rss/rssdata/politic_news.xml", "left-news");
 
   // 중립
-  loadNews("https://www.yna.co.kr/rss/all01.xml", "neutral-news");
-  loadNews("https://www.news1.kr/rss/rss.xml", "neutral-news");
-  loadNews("http://news.kbs.co.kr/rss/rss.xml?cat=politics", "neutral-news");
+  loadNews("https://www.yna.co.kr/rss/politics.xml", "neutral-news");
+  loadNews("https://api.newswire.co.kr/rss/industry/1400", "neutral-news");
+  loadNews("https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=01&plink=RSSREADER", "neutral-news");
 
   // 우파
   loadNews("http://rss.chosun.com/rss/www_section01.xml", "right-news");
