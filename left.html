@@ -30,3 +30,21 @@
   </footer>
 </body>
 </html>
+<h1>좌파 성향 뉴스</h1>
+<ul id="news-list"></ul>
+<script>
+  const rss_url = encodeURIComponent("http://www.hani.co.kr/rss/");
+  const api_url = `https://api.rss2json.com/v1/api.json?rss_url=${rss_url}`;
+  
+  fetch(api_url)
+    .then(res => res.json())
+    .then(data => {
+      const list = document.getElementById('news-list');
+      data.items.slice(0, 5).forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+        list.appendChild(li);
+      });
+    });
+  </script>
+  

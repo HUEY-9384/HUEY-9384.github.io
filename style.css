@@ -21,3 +21,18 @@ body {
     padding: 1rem 0;
   }
   
+  ul#news-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul#news-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  ul#news-list a {
+    text-decoration: none;
+    color: #333;
+  }
+  
