@@ -128,6 +128,7 @@ body.dark .right  { border-left: 4px solid #6699ff; }
   background-color: #f4f4f4;
   border-left: 2px solid #bbb;   /* 선 두께 줄이기 */
   border-radius: 2px;            /* 둥근 정도 살짝 줄이기 */
+  display: inline-block;    /* 내용만큼만 높이 설정됨 */
   white-space: pre-wrap;
   line-height: 1.3;              /* 줄 간격도 약간 줄이기 */
   font-style: italic;
