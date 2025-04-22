@@ -122,11 +122,11 @@ body.dark .right  { border-left: 4px solid #6699ff; }
 
 .author-opinion {
   font-size: 0.8em;              /* 글자 크기 작게 유지 */
-  color: #d6d6d6;                   /* 연한 회색 */
+  color: #0e0e0e;                   /* 연한 회색 */
   max-width: 700px;              /* 너비 더 줄이기 */
   margin: 5px auto;             /* 위아래 마진 줄이기 */
   padding: 6px 12px;             /* 안쪽 여백 줄이기 */
-  background-color: #f4f4f4;
+  background-color: #5a5a5a;
   border-left: 2px solid #bbb;   /* 선 두께 줄이기 */
   border-radius: 2px;            /* 둥근 정도 살짝 줄이기 */
   /* display: inline-block;    내용만큼만 높이 설정됨 */
@@ -137,7 +137,7 @@ body.dark .right  { border-left: 4px solid #6699ff; }
 
 body.dark .author-opinion {
   background-color: #222;
-  color: #aaa;
+  color: #9c9c9c;
   border-left-color: #555;
 }
 
