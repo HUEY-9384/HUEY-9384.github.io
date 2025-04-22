@@ -74,3 +74,41 @@ section {
 .left   { border-left: 4px solid #cc0000; }
 .neutral{ border-left: 4px solid #999; }
 .right  { border-left: 4px solid #0055cc; }
+
+.news-card {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.news-img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.news-info {
+  flex: 1;
+}
+
+.news-title {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.news-meta {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.news-desc {
+  font-size: 0.9rem;
+  color: #333;
+}
