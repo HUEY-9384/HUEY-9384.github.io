@@ -41,11 +41,17 @@
       .then(data => {
         const container = document.getElementById(elementId);
         data.items.slice(0, 5).forEach(item => {
+          // 썸네일 URL이 없으면 기본 이미지 사용
+          const thumbnail = item.thumbnail ? item.thumbnail : 'https://via.placeholder.com/120';
+
+          // 썸네일 URL을 절대 경로로 변환 (상대 경로 처리 예시)
+          const absoluteThumbnailUrl = thumbnail.startsWith('http') ? thumbnail : `https://example.com${thumbnail}`;
+
           const div = document.createElement('div');
           div.className = 'news-item';
           div.innerHTML = `
             <a href="${item.link}" target="_blank" class="news-card">
-              <img src="${item.thumbnail || 'https://via.placeholder.com/120'}" alt="썸네일" class="news-img">
+              <img src="${absoluteThumbnailUrl}" alt="썸네일" class="news-img">
               <div class="news-info">
                 <h3 class="news-title">${item.title}</h3>
                 <p class="news-meta">
