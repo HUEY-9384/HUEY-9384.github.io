@@ -2,49 +2,42 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>우파 성향 뉴스</title>
+  <title>좌파 성향 뉴스</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>우파 성향 뉴스</h1>
+    <h1>좌파 성향 뉴스</h1>
     <nav>
       <a href="index.html">홈</a>
-      <a href="left.html">좌파 뉴스</a>
       <a href="neutral.html">중립 뉴스</a>
+      <a href="right.html">우파 뉴스</a>
     </nav>
   </header>
+
   <main>
-    <h2>주요 뉴스</h2>
-    <article>
-      <h3>우파 주요 뉴스 1</h3>
-      <p>우파 성향의 뉴스 내용...</p>
-    </article>
-    <article>
-      <h3>우파 주요 뉴스 2</h3>
-      <p>우파 성향의 뉴스 내용...</p>
-    </article>
+    <h2>최신 좌파 뉴스 (자동 불러오기)</h2>
+    <ul id="news-list"></ul>
   </main>
+
   <footer>
     <p>&copy; 2025 종합 뉴스</p>
   </footer>
+
+  <script>
+    const rss_url = encodeURIComponent("http://www.hani.co.kr/rss/");  // 한겨레
+    const api_url = `https://api.rss2json.com/v1/api.json?rss_url=${rss_url}`;
+
+    fetch(api_url)
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('news-list');
+        data.items.slice(0, 5).forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+          list.appendChild(li);
+        });
+      });
+  </script>
 </body>
 </html>
-<h1>좌파 성향 뉴스</h1>
-<ul id="news-list"></ul>
-<script>
-  const rss_url = encodeURIComponent("http://www.hani.co.kr/rss/");
-  const api_url = `https://api.rss2json.com/v1/api.json?rss_url=${rss_url}`;
-  
-  fetch(api_url)
-    .then(res => res.json())
-    .then(data => {
-      const list = document.getElementById('news-list');
-      data.items.slice(0, 5).forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
-        list.appendChild(li);
-      });
-    });
-  </script>
-  
