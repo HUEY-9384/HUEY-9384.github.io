@@ -31,7 +31,7 @@ section {
   border-radius: 8px;
   flex: 1;
   overflow-y: auto;
-  height: 800px;
+  max-height: 800px; /* or remove completely */
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
