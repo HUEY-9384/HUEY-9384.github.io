@@ -115,3 +115,22 @@ body.dark .news-text p {
 body.dark .left   { border-left: 4px solid #cc6666; }
 body.dark .neutral{ border-left: 4px solid #aaa; }
 body.dark .right  { border-left: 4px solid #6699ff; }
+
+
+
+
+.author-opinion {
+  background-color: #eaeaea;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-left: 4px solid #666;
+  font-style: italic;
+  white-space: pre-wrap;
+}
+
+body.dark .author-opinion {
+  background-color: #333;
+  color: #ccc;
+  border-left-color: #888;
+}
+
