@@ -87,6 +87,22 @@
   function toggleDarkMode() {
   document.body.classList.toggle('dark');
   }
+  // 처음 페이지 로드 시: 시스템 설정 + 로컬 저장값 확인
+  window.onload = function () {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.body.classList.add('dark');
+    }
+  }
+
+  // 수동 토글 버튼
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }  
   </script>
 </body>
 </html>
