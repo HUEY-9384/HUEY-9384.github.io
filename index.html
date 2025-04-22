@@ -43,7 +43,7 @@
         data.items.slice(0, 5).forEach(item => {
           // <media:thumbnail> 또는 <media:content>에서 썸네일 URL 추출
           const thumbnail = item['media:thumbnail'] ? item['media:thumbnail'].url : 
-                            (item['media:content'] ? item['media:content'].url : 'https://via.placeholder.com/120');
+                            (item['media:content'] ? item['media:content'].url : 'https://via.placeholder.com/100');
 
           const div = document.createElement('div');
           div.className = 'news-item';
